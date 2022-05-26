@@ -6,7 +6,7 @@ module.exports = {
           doctortheme: {
           primary:" #b9770e ",
           secondary:" #f4d03f ",
-          neutral: "#dc7633",
+          neutral: "#dc7633"
           },
         },
       ],
