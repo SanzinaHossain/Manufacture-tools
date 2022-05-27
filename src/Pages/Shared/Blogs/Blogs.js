@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../Footer/Footer'
 const Blogs = () => {
   return (
     <div class="mt-7">
@@ -43,6 +44,7 @@ const Blogs = () => {
     </div>
   </div>
    </div>
+   <Footer></Footer>
     </div>
   )
 }

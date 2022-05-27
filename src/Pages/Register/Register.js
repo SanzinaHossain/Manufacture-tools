@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Footer from '../Shared/Footer/Footer';
 import Loading from '../Shared/Loading/Loading';
 const Register = () => {
   const navigate=useNavigate();
@@ -38,7 +39,8 @@ const Register = () => {
           navigate('/blogs');
         }
   return (
-    <div class="flex justify-center items-center mt-7 text-black">
+   <div>
+      <div class="flex justify-center items-center mt-7 text-black">
     <div class="card w-96 bg-base-100 shadow-2xl">
       <div class="card-body">
          <h2 class=" text-4xl text-center text-secondary">Please SignUp !!!</h2>
@@ -111,12 +113,14 @@ const Register = () => {
     <input value="SignUp"class="btn btn-primary w-full max-w-xs text-white" type="submit"/>
     </div>
   </form>
-  <p class="text-center">Already Have an Account? <Link class="text-primary" to="/login">SignUp</Link></p>
+  <p class="text-center">Already Have an Account? <Link class="text-primary" to="/login">Login</Link></p>
   <div class="divider divider-bg-primary">OR</div>
   <button onClick={() =>signInWithGoogle()}class="btn btn-outline btn-primary">Connect With Google</button>
 </div>
 </div>
   </div>
+  <Footer></Footer>
+   </div>
   )
 }
 

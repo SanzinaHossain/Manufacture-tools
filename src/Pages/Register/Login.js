@@ -4,6 +4,7 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import auth from "../../firebase.init"
 import Loading from '../Shared/Loading/Loading';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
+import Footer from '../Shared/Footer/Footer';
 const Login = () => {
   const navigate=useNavigate();
   const [
@@ -35,7 +36,8 @@ const Login = () => {
       return <Loading></Loading>
     }
   return (
-    <div class="flex justify-center items-center mt-7 text-black">
+   <div>
+      <div class="flex justify-center items-center mt-7 text-black">
     <div class="card w-96 bg-base-100 shadow-2xl">
       <div class="card-body">
          <h2 class=" text-4xl text-center text-secondary">Please Login !!!</h2>
@@ -96,6 +98,8 @@ const Login = () => {
 </div>
 </div>
   </div>
+  <Footer></Footer>
+   </div>
   )
 }
 
