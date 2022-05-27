@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Home from "./Pages/Home/Home";
@@ -11,6 +13,12 @@ import Tools from './Pages/Tools/Tools';
 import Purchased from './Pages/Purchased/Purchased';
 import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 import NoPageFound from './Pages/NoPageFound/NoPageFound';
+import MyProfile from './Pages/DashBoard/MyProfile';
+import MyReview from './Pages/DashBoard/MyReview';
+import MyOrder from './Pages/DashBoard/MyOrder';
+import DashBoard from './Pages/DashBoard/DashBoard';
+import AllUsers from './Pages/DashBoard/AllUsers';
+import RequireAdmin from "./Hooks/RequireAdmin"
 function App() {
   return (
     <div>
@@ -27,8 +35,18 @@ function App() {
              <Purchased></Purchased>
         </RequireAuth>
         }></Route>
+         <Route path="/dashboard" element={
+        <RequireAuth>
+             <DashBoard/>
+        </RequireAuth>
+        }>
+           <Route index element={<MyProfile></MyProfile>}></Route>
+           <Route path="myreview" element={<MyReview></MyReview>}></Route>
+           <Route path="allusers" element={<AllUsers></AllUsers>}></Route>
+            </Route>
         <Route path="*" element={<NoPageFound></NoPageFound>}></Route>
      </Routes>
+     <ToastContainer/>
     </div>
   );
 }

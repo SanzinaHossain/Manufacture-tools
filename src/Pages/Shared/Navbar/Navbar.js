@@ -14,12 +14,12 @@ const Navbar = () => {
          <li class="hover:bg-teal-200 text-black  rounded-lg"><Link to="/">Home</Link></li>
          <li class="hover:bg-teal-200 text-black  rounded-lg"><Link to="/blogs">Blogs</Link></li>
          <li class="hover:bg-teal-200 text-black  rounded-lg"><Link to="/reviews">Reviews</Link></li>
+         {
+          user && <li class="text-black "><Link to ="/dashboard" >DashBoard</Link></li>
+         }
          <li class="hover:bg-teal-200 rounded-lg text-black ">{user? <Link to="/profile">Profile</Link>:<Link to="/Register">Register</Link>}</li>
          <li class="hover:bg-teal-200 rounded-lg text-black ">{user? <Link onClick={logout} to="/login">SignOut</Link>:<Link to="/login">Login</Link>}</li> 
-      {/* {
-  //         user && <li><Link to ="/dashboard" >DashBoard</Link></li>
-  //       }
-  //       <li class="hover:bg-teal-200 rounded-lg">{user? <Link onClick={logout} to="/login">SignOut</Link>:<Link to="/login">Login</Link>}</li> */}
+        
   </>
   return (
     <div class="navbar bg-base-100 navbar-fixed">
@@ -39,11 +39,11 @@ const Navbar = () => {
           {menuitems}
       </ul>
     </div>
-    {/* <div className="navbar-end">
+   <div className="navbar-end">
     <label tabindex="1" for="my-drawer-2" class="btn btn-ghost lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
-    </div> */}
+    </div>
   </div>
   )
 }

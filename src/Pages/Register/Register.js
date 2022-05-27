@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../Hooks/UseToken';
 import Footer from '../Shared/Footer/Footer';
 import Loading from '../Shared/Loading/Loading';
 const Register = () => {
@@ -25,7 +26,7 @@ const Register = () => {
         gerror] = useSignInWithGoogle(auth);
         const [updateProfile, updating, upError] = useUpdateProfile(auth);
         let signInError;
-
+        const[token]=useToken(user ||guser);
         if ( error || upError ||gerror) {
           signInError=<p className='text-red-700 bold'>{error?.message || upError?.message}</p>
         }
@@ -34,7 +35,7 @@ const Register = () => {
         {
           return <Loading></Loading>
         }
-        if(user || guser)
+        if(token)
         {
           navigate('/blogs');
         }

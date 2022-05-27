@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from "react-hook-form";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init"
 import Loading from '../Shared/Loading/Loading';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../Shared/Footer/Footer';
+import useToken from '../../Hooks/UseToken';
 const Login = () => {
   const navigate=useNavigate();
   const [
@@ -26,10 +27,12 @@ const Login = () => {
     const location=useLocation();
     let from=location.state?.from?.pathname || "/";
     let signInError;
-    if(user || guser)
-    {
-      navigate(from,{replace:true});
-    }
+    const[token]=useToken(user||guser)
+    useEffect(()=>{
+      if(token){
+        navigate(from,{replace:true});
+      }
+  },[token,from,navigate])
     if (gerror || error) {
       signInError=<p className='text-red-700 bold'>{error?.message || gerror?.message}</p>
     }
