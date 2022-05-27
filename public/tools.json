@@ -4,6 +4,7 @@
        "price":120,
         "name":"Wrench",
         "stock":140,
+        "minimum":4,
         "description":"Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination."
     },
     {
@@ -11,6 +12,7 @@
         "price":90,
         "name":"Screwdriver",
         "stock":130,
+        "minimum":3,
         "description":"Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination."
     },
     {
@@ -18,6 +20,7 @@
        "price":100,
         "name":"Hammer",
         "stock":80,
+        "minimum":2,
         "description":"Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination."
     },
     {
@@ -25,6 +28,7 @@
         "price":150,
         "name":"Drill Machine",
         "stock":90,
+        "minimum":5,
         "description":"Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination."
      },
      {
@@ -32,6 +36,7 @@
         "price":100,
         "name":"Soldering Iron",
         "stock":124,
+        "minimum":3,
         "Supplier":"versace Serve",
         "description":"Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination."
      },
@@ -40,6 +45,7 @@
         "price":300,
         "name":"Electric Saw",
         "stock":97,
+        "minimum":2,
         "Supplier":"Umair collection",
         "description":"Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination."
      }

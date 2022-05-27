@@ -1,7 +1,12 @@
 import React from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 import "../ToolsCard/ToolsCard.css"
 const ToolsCard = ({t}) => {
-    const {img,name,price,stock,description}=t;
+  const navigate=useNavigate();
+  const goto=(id)=>{
+    navigate(`/purchased/${id}`);
+  }
+    const {img,name,price,stock,description,_id}=t;
   return (
     <div class="card w-96 bg-base-100 shadow-xl">
   <figure><img class="pic" src={img} alt="Shoes" /></figure>
@@ -11,7 +16,7 @@ const ToolsCard = ({t}) => {
     <h2 class="card-title text-center">Stock: {stock} Pc</h2>
     <p>{description}</p>
     <div class="card-actions justify-center mt-3">
-      <button class="btn btn-primary text-white font-bold">Book Now</button>
+      <button onClick={()=>goto(_id)}class="btn btn-primary text-white font-bold">Book Now</button>
     </div>
   </div>
 </div>

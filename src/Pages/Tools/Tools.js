@@ -4,7 +4,7 @@ import ToolsCard from './ToolsCard/ToolsCard'
 const Tools = () => {
     const [tools,setTools]=useState([])
     useEffect(()=>{
-          fetch('tools.json')
+          fetch("http://localhost:5000/tools")
           .then(res=>res.json())
           .then(data=>{
               setTools(data);
@@ -16,6 +16,7 @@ const Tools = () => {
         <div class="grid lg:grid-cols-3 gap-5 grid-cols-1 mt-12">
         {
             tools.map(t=><ToolsCard
+            key={t._id}
              t={t}
             ></ToolsCard>)
         }

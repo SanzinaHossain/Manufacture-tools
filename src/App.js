@@ -8,6 +8,9 @@ import Register from "./Pages/Register/Register";
 import { Route, Routes } from 'react-router-dom';
 import Blogs from './Pages/Shared/Blogs/Blogs';
 import Tools from './Pages/Tools/Tools';
+import Purchased from './Pages/Purchased/Purchased';
+import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
+import NoPageFound from './Pages/NoPageFound/NoPageFound';
 function App() {
   return (
     <div>
@@ -19,6 +22,12 @@ function App() {
        <Route path="/footer" element={<Footer></Footer>}></Route>
        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
        <Route path="/tools" element={<Tools></Tools>}></Route>
+       <Route path="/purchased/:id" element={
+        <RequireAuth>
+             <Purchased></Purchased>
+        </RequireAuth>
+        }></Route>
+        <Route path="*" element={<NoPageFound></NoPageFound>}></Route>
      </Routes>
     </div>
   );
