@@ -19,6 +19,7 @@ import MyOrder from './Pages/DashBoard/MyOrder';
 import DashBoard from './Pages/DashBoard/DashBoard';
 import AllUsers from './Pages/DashBoard/AllUsers';
 import RequireAdmin from "./Hooks/RequireAdmin"
+import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 function App() {
   return (
     <div>
@@ -30,6 +31,7 @@ function App() {
        <Route path="/footer" element={<Footer></Footer>}></Route>
        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
        <Route path="/tools" element={<Tools></Tools>}></Route>
+       <Route path="/myportfolio" element={<MyPortfolio></MyPortfolio>}></Route>
        <Route path="/purchased/:id" element={
         <RequireAuth>
              <Purchased></Purchased>
