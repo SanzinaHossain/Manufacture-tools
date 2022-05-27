@@ -1,0 +1,47 @@
+[
+    {
+       "img":"https://cdn2.louis.de/dynamic/articles/o_resize,w_1800,h_1800,m_limit,c_fff/8a.7b.ce.D3GedoreredRollgabelschluessel86035202091020.JPG",
+       "price":120,
+        "name":"Wrench",
+        "stock":140,
+        "description":"Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination."
+    },
+    {
+        "img":"https://www.vigor-equipment.com/media/image/99/b7/14/v3392Zu3681UwtpIpe.jpg",
+        "price":90,
+        "name":"Screwdriver",
+        "stock":130,
+        "description":"Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination."
+    },
+    {
+       "img":"https://rukminim1.flixcart.com/image/416/416/k4px6kw0/hammer/w/3/x/tubular-steel-handle-curved-claw-hammer-10-5-inch-vasundhara-original-imafnjznd3ghjfyd.jpeg?q=70",
+       "price":100,
+        "name":"Hammer",
+        "stock":80,
+        "description":"Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination."
+    },
+    {
+        "img":"https://img10.joybuy.com/N0/s560x560_jfs/t20563/19/2013773589/113606/ef69f050/5b444624N54b70d4f.jpg.dpg",
+        "price":150,
+        "name":"Drill Machine",
+        "stock":90,
+        "description":"Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination."
+     },
+     {
+        "img":"https://www.ubuy.co.id/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNjFLZnJjWXRLTVMuX0FDX1NMMTUwMF8uanBn.jpg",
+        "price":100,
+        "name":"Soldering Iron",
+        "stock":124,
+        "Supplier":"versace Serve",
+        "description":"Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination."
+     },
+     {
+        "img":"https://m.media-amazon.com/images/I/71RdFLNY-XL._AC_SY355_.jpg",
+        "price":300,
+        "name":"Electric Saw",
+        "stock":97,
+        "Supplier":"Umair collection",
+        "description":"Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination."
+     }
+    
+]
