@@ -7,6 +7,7 @@ import Login from "./Pages/Register/Login";
 import Register from "./Pages/Register/Register";
 import { Route, Routes } from 'react-router-dom';
 import Blogs from './Pages/Shared/Blogs/Blogs';
+import Tools from './Pages/Tools/Tools';
 function App() {
   return (
     <div>
@@ -17,6 +18,7 @@ function App() {
        <Route path="/register" element={<Register></Register>}></Route>
        <Route path="/footer" element={<Footer></Footer>}></Route>
        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+       <Route path="/tools" element={<Tools></Tools>}></Route>
      </Routes>
     </div>
   );

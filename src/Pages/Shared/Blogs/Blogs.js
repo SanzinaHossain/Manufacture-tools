@@ -1,6 +1,8 @@
 import React from 'react'
 const Blogs = () => {
   return (
+    <div class="mt-7">
+      <h1 class="text-4xl text-center text-red-500">All question Answer</h1>
    <div className='grid lg:grid-cols-3  grid-cols-1 gap-5 lg:mx-12 mx-7  lg:mt-12 mt-9'>
       <div class="card w-96 bg-green-300 shadow-xl">
     <div class="card-body items-center text-center">
@@ -41,6 +43,7 @@ const Blogs = () => {
     </div>
   </div>
    </div>
+    </div>
   )
 }
 

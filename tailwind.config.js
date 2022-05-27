@@ -3,10 +3,10 @@ module.exports = {
     daisyui: {
       themes: [
         {
-          doctortheme: {
-          primary:" #b9770e ",
-          secondary:" #f4d03f ",
-          neutral: "#dc7633"
+          toolstheme: {
+          primary:"#b9770e",
+          secondary:"#f4d03f",
+         
           },
         },
       ],
