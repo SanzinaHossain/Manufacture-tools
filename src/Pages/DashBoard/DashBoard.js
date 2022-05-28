@@ -25,7 +25,7 @@ const DashBoard = () => {
       {
           !admin && <>
           <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/myorder">My Orders</Link></li>
-          <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/myreview">My Review</Link></li>
+          <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/myreview">Add Review</Link></li>
           </>
       } 
       {
