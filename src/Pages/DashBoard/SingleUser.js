@@ -30,7 +30,6 @@ const SingleUser = ({u,refetch}) => {
     <tr>
         <td class="text-black" >{email}</td>
         <td>{role!=='admin' && <button onClick={makeAdmin} class="btn btn-sm btn-primary">Make Admin</button>}</td>
-        <td><button class="btn btn-sm btn-primary">Remove User</button></td>
       </tr>
   )
 }

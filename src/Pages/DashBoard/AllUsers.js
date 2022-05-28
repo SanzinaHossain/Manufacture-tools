@@ -21,7 +21,6 @@ if (isLoading) {
       <tr class="bg-green-300">
         <th>Name</th>
         <th>Make Admin</th>
-        <th>Delete User</th>
       </tr>
     </thead>
     <tbody>

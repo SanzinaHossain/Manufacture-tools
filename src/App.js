@@ -20,6 +20,9 @@ import DashBoard from './Pages/DashBoard/DashBoard';
 import AllUsers from './Pages/DashBoard/AllUsers';
 import RequireAdmin from "./Hooks/RequireAdmin"
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
+import AddProduct from "./Pages/DashBoard/AddProduct"
+import ManageProduct from './Pages/DashBoard/ManageProduct';
+import ManageItems from './Pages/DashBoard/ManageItems';
 function App() {
   return (
     <div>
@@ -44,7 +47,27 @@ function App() {
         }>
            <Route index element={<MyProfile></MyProfile>}></Route>
            <Route path="myreview" element={<MyReview></MyReview>}></Route>
-           <Route path="allusers" element={<AllUsers></AllUsers>}></Route>
+           <Route path="myorder" element={<MyOrder></MyOrder>}></Route>
+           <Route path="allusers" element={
+           <RequireAdmin>
+               <AllUsers></AllUsers>
+           </RequireAdmin>}>
+           </Route>
+           <Route path="addproduct" element={
+           <RequireAdmin>
+               <AddProduct></AddProduct>
+           </RequireAdmin>}>
+           </Route>
+           <Route path="manageproduct" element={
+           <RequireAdmin>
+               <ManageProduct></ManageProduct>
+           </RequireAdmin>}>
+           </Route>
+           <Route path="manageitems" element={
+           <RequireAdmin>
+               <ManageItems></ManageItems>
+           </RequireAdmin>}>
+           </Route>
             </Route>
         <Route path="*" element={<NoPageFound></NoPageFound>}></Route>
      </Routes>

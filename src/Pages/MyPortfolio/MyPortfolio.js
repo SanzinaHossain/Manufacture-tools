@@ -1,5 +1,5 @@
 import React from 'react'
-import pic from "../../images/Banner/pic-1.jpg"
+import pic from "../../images/Banner/pic-5.jpg"
 const MyPortfolio = () => {
   return (
     <div>

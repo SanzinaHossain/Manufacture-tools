@@ -6,7 +6,7 @@ import UseAdmin from '../../Hooks/UseAdmin';
 
 const DashBoard = () => {
     const [user]=useAuthState(auth);
-    //const [admin]=UseAdmin(user)
+    const [admin]=UseAdmin(user)
   return (
     <div class="mt-5">
     <div class="drawer drawer-mobile">
@@ -22,14 +22,20 @@ const DashBoard = () => {
     <ul class="menu p-4 overflow-y-auto w-80 text-base-content ">
       {/* <!-- Sidebar content here --> */}
       <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard">My Profile</Link></li>
-      <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/myreview">My Review</Link></li>
-      <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/allUsers">All Users</Link></li>
-       {/* {
-          admin && <>
-          <li class="hover:bg-teal-200 rounded-lg"><Link to="/dashboard/allUsers">All Users</Link></li>
-           <li class="hover:bg-teal-200 rounded-lg"><Link to="/dashboard/adddoctor">Add Doctor</Link></li> 
+      {
+          !admin && <>
+          <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/myorder">My Orders</Link></li>
+          <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/myreview">My Review</Link></li>
           </>
-      }  */}
+      } 
+      {
+          admin && <>
+          <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/allUsers">All Users</Link></li>
+           <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/addproduct">Add Product</Link></li> 
+           <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/manageitems">Manage All Items</Link></li> 
+           <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/manageproduct">Manage Products</Link></li>
+          </>
+      } 
     </ul>
   
   </div>

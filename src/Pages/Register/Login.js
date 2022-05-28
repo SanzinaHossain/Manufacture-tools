@@ -7,39 +7,43 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../Shared/Footer/Footer';
 import useToken from '../../Hooks/UseToken';
 const Login = () => {
-  const navigate=useNavigate();
-  const [
-    signInWithGoogle, 
-    guser, 
-    gloading, 
-    gerror] = useSignInWithGoogle(auth);
+ //Google Login
+ const [
+  signInWithGoogle, 
+  guser, 
+  gloading, 
+  gerror] = useSignInWithGoogle(auth); 
+  //email password Login
   const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = data =>{ 
-      console.log(data);
-      signInWithEmailAndPassword(data.email,data.password)
+  const onSubmit = data =>{ 
+    console.log(data);
+    signInWithEmailAndPassword(data.email,data.password)
+  }
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+  const[token]=useToken(user||guser)
+  const navigate=useNavigate();
+  const location=useLocation();
+  let from=location.state?.from?.pathname || "/";
+  useEffect(()=>{
+    if(token){
+      navigate(from,{replace:true});
     }
-    const [
-      signInWithEmailAndPassword,
-      user,
-      loading,
-      error,
-    ] = useSignInWithEmailAndPassword(auth);
-    const location=useLocation();
-    let from=location.state?.from?.pathname || "/";
-    let signInError;
-    const[token]=useToken(user||guser)
-    useEffect(()=>{
-      if(token){
-        navigate(from,{replace:true});
-      }
-  },[token,from,navigate])
-    if (gerror || error) {
-      signInError=<p className='text-red-700 bold'>{error?.message || gerror?.message}</p>
-    }
-    if(loading || gloading)
-    {
-      return <Loading></Loading>
-    }
+},[token,from,navigate])
+  let signInError;
+
+  if (gerror || error) {
+    signInError=<p className='text-red-700 bold'>{error?.message || gerror?.message}</p>
+  }
+
+  if(loading || gloading)
+  {
+    return <Loading></Loading>
+  }
   return (
    <div>
       <div class="flex justify-center items-center mt-7 text-black">
