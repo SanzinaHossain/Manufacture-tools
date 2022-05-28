@@ -26,6 +26,7 @@ const MyReview = () => {
               name:data.name,
               email:data.email,
               review:data.review,
+              rating:data.rating,
               img:img          
             }
             fetch('http://localhost:5000/reviews',{
@@ -104,6 +105,16 @@ const MyReview = () => {
           {errors.email?.type === 'required' && <span className="label-text-alt text-red-700">{errors.email.message}</span>}
           
           </label>
+      </div>
+      <div class="form-control w-full max-w-xs">
+       <label class="label">
+           <span class="label-text text-black">Give Rating</span>
+       </label>
+       <input 
+           {...register("rating")}     
+            type="text"  
+            placeholder="Enter Any Rating" 
+            class="text-black input input-bordered w-full max-w-xs border-secondary" />
       </div>
       <div class="form-control w-full max-w-xs">
        <label class="label">
