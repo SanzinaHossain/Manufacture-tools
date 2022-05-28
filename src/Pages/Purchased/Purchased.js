@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Footer from '../Shared/Footer/Footer';
 
@@ -18,12 +19,34 @@ const Purchased = () => {
          setGetitem(data)
       })
     },[])
-    const {minimum,stock,name}=getitem;
+    const {minimum,stock,name,price}=getitem;
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = data =>{ 
-      console.log(data);
-      const min=data.mquantity;
-      console.log(min);
+      let p=parseInt(data.mquantity)*price;
+      const mybooking={
+        email:data.email,
+        Pname:name,
+        order:data.mquantity,
+        phone:data.phone,
+        price:p
+
+      }
+      fetch('http://localhost:5000/bookings',{
+        method:'POST',
+        headers:{
+          'content-type':'application/json',
+          authorization:`Bearer ${localStorage.getItem('accessToken')}`
+        },
+        body:JSON.stringify(mybooking)
+      })
+      .then(res=>res.json())
+      .then(r=>{
+        console.log(r)
+        if(r.success)
+        {
+          toast("Booking successfully");
+        }
+      })
     }
   return (
     <div>
@@ -32,16 +55,6 @@ const Purchased = () => {
       <div class="card-body">
          <h2 class=" text-4xl text-center text-secondary">Order Your Product</h2>
          <form onSubmit={handleSubmit(onSubmit)}>
-           <div class="form-control w-full max-w-xs">
-         <label class="label">
-             <span class="label-text text-black">UserName</span>
-         </label>
-         <input 
-             {...register("username")}     
-              type="text" 
-              value={user.displayName}
-              class="input input-bordered w-full max-w-xs border-secondary" />
-        </div>
         <div class="form-control w-full max-w-xs">
          <label class="label">
              <span class="label-text text-black">Email</span>
