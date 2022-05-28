@@ -23,6 +23,7 @@ import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import AddProduct from "./Pages/DashBoard/AddProduct"
 import ManageProduct from './Pages/DashBoard/ManageProduct';
 import ManageItems from './Pages/DashBoard/ManageItems';
+import Reviews from './Pages/Reviews/Reviews';
 function App() {
   return (
     <div>
@@ -34,6 +35,7 @@ function App() {
        <Route path="/footer" element={<Footer></Footer>}></Route>
        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
        <Route path="/tools" element={<Tools></Tools>}></Route>
+       <Route path="/reviews" element={<Reviews></Reviews>}></Route>
        <Route path="/myportfolio" element={<MyPortfolio></MyPortfolio>}></Route>
        <Route path="/purchased/:id" element={
         <RequireAuth>
