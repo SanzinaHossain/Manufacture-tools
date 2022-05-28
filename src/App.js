@@ -25,6 +25,7 @@ import ManageProduct from './Pages/DashBoard/ManageProduct';
 import ManageItems from './Pages/DashBoard/ManageItems';
 import Reviews from './Pages/Reviews/Reviews';
 import AboutMore from './Pages/AboutMore/AboutMore';
+import Payment from './Pages/DashBoard/Payment';
 function App() {
   return (
     <div>
@@ -52,6 +53,7 @@ function App() {
            <Route index element={<MyProfile></MyProfile>}></Route>
            <Route path="myreview" element={<MyReview></MyReview>}></Route>
            <Route path="myorder" element={<MyOrder></MyOrder>}></Route>
+           <Route path="payment/:id" element={<Payment></Payment>}></Route>
            <Route path="allusers" element={
            <RequireAdmin>
                <AllUsers></AllUsers>
