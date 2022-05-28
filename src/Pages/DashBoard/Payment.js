@@ -8,7 +8,7 @@ import CheckoutForm from './CheckoutForm';
 const stripePromise = loadStripe('pk_test_51L4RWHHnjM726u3HvoesrFxy4Wp3n5RUBTpQTfmQkYN69w7dRN7Te5RH4zErenHGRMnzKW4o6OsviF5MGBmS9qTr00S1pY9dYB');
 const Payment = () => {
     const {id}=useParams();
-    const url=`http://localhost:5000/bookings/${id}`;
+    const url=`https://morning-fortress-41399.herokuapp.com/bookings/${id}`;
     const {data:book,isLoading}=useQuery(['bookings',id],()=>fetch(url).then(res=>res.json()))
     if(isLoading)
     {

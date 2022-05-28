@@ -12,7 +12,7 @@ const Purchased = () => {
     console.log(id)
     const [getitem,setGetitem]=useState([]);
     useEffect(()=>{
-      fetch(`http://localhost:5000/tools/${id}`)
+      fetch(`https://morning-fortress-41399.herokuapp.com/tools/${id}`)
       .then(res=>res.json())
       .then(data=>{
         console.log(data)
@@ -31,7 +31,7 @@ const Purchased = () => {
         price:p
 
       }
-      fetch('http://localhost:5000/bookings',{
+      fetch('https://morning-fortress-41399.herokuapp.com/bookings',{
         method:'POST',
         headers:{
           'content-type':'application/json',

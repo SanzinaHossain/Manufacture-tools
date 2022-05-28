@@ -30,7 +30,7 @@ const AddProduct = () => {
               description:data.des,
               img:img          
             }
-            fetch('http://localhost:5000/tools',{
+            fetch('https://morning-fortress-41399.herokuapp.com/tools',{
               method:'POST',
               headers:{
                 'content-type':'application/json',

@@ -14,7 +14,7 @@ const MyProfile = () => {
       phone:data.phone,
       address:data.address   
     }
-    fetch(`http://localhost:5000/user/profile/${email}`,{
+    fetch(`https://morning-fortress-41399.herokuapp.com/user/profile/${email}`,{
       method:'PUT',
       headers:{
         'content-type':'application/json',
@@ -33,7 +33,7 @@ const MyProfile = () => {
   }
   const [p,setP]=useState([])
   useEffect(()=>{
-      fetch('http://localhost:5000/users')
+      fetch('https://morning-fortress-41399.herokuapp.com/users')
       .then(res=>res.json())
       .then(data=>{
         

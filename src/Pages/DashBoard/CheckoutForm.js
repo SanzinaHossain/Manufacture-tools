@@ -10,7 +10,7 @@ const CheckoutForm = ({book}) => {
     const [transactionId, setTransactionId] = useState('');
     const [success, setSuccess] = useState('');
     useEffect(()=>{
-        fetch("http://localhost:5000/create-payment-intent",{
+        fetch("https://morning-fortress-41399.herokuapp.com/create-payment-intent",{
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -64,7 +64,7 @@ const CheckoutForm = ({book}) => {
                 book: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/bookings/${_id}`, {
+            fetch(`https://morning-fortress-41399.herokuapp.com/bookings/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

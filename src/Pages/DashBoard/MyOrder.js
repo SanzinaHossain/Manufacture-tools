@@ -9,7 +9,7 @@ const MyOrder = () => {
   const [user]=useAuthState(auth);
   const [bookings,setBookings]=useState([])
   useEffect(()=>{
-       fetch('http://localhost:5000/bookings',{
+       fetch('https://morning-fortress-41399.herokuapp.com/bookings',{
         headers:{
           authorization: `Bearer ${localStorage.getItem('accessToken')}`
       }

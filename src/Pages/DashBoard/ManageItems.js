@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading/Loading';
 import ProductTable from './ProductTable';
 
 const ManageItems = () => {
-  const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('http://localhost:5000/tools', {
+  const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('https://morning-fortress-41399.herokuapp.com/tools', {
     method: 'GET',
     headers:{
         authorization: `Bearer ${localStorage.getItem('accessToken')}`

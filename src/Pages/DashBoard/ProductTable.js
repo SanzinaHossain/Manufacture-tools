@@ -8,7 +8,7 @@ const ProductTable = ({t,refetch}) => {
       const proceed=window.confirm('Are you sure?')
       if(proceed)
       {
-          const url=`http://localhost:5000/tools/${id}`;
+          const url=`https://morning-fortress-41399.herokuapp.com/tools/${id}`;
           fetch(url,{
               method:'DELETE'
           })
