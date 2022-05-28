@@ -37,7 +37,7 @@ const Register = () => {
         }
         if(token)
         {
-          navigate('/blogs');
+          navigate('/');
         }
   return (
    <div>

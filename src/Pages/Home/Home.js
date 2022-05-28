@@ -1,4 +1,5 @@
 import React from 'react'
+import AboutMore from '../AboutMore/AboutMore'
 import Reviews from '../Reviews/Reviews'
 import Footer from '../Shared/Footer/Footer'
 import Tools from '../Tools/Tools'
@@ -13,7 +14,9 @@ const Home = () => {
       <Banner></Banner>
       <Tools></Tools>
       <BS></BS>
+      <AboutMore></AboutMore>
       <Reviews></Reviews>
+      
       <HomeContact></HomeContact>
       <Footer></Footer>
     </div>
