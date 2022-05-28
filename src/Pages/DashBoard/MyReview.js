@@ -51,7 +51,7 @@ const MyReview = () => {
     }
   return (
     <div className='mt-5'>
-    <h1 className='text-center text-3xl text-secondary font-bold'>Add A Doctor</h1>
+    <h1 className='text-center text-3xl text-primary font-bold'>Please Add a Review</h1>
    <div class="flex justify-center items-center mt-7">
    <div class="card w-96 bg-base-100 shadow-2xl">
     <div class="card-body">
