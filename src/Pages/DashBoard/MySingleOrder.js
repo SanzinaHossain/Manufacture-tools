@@ -9,7 +9,7 @@ const MySingleOrder = ({b}) => {
       const proceed=window.confirm('Are you sure?')
       if(proceed)
       {
-          const url=`http://localhost:5000/bookings/${id}`;
+          const url=`https://morning-fortress-41399.herokuapp.com/bookings/${id}`;
           fetch(url,{
               method:'DELETE'
           })

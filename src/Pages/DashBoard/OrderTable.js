@@ -7,14 +7,14 @@ const OrderTable = ({b,refetch}) => {
     const proceed=window.confirm('Are you sure?')
     if(proceed)
     {
-        const url=`http://localhost:5000/bookings/${id}`;
+        const url=`https://morning-fortress-41399.herokuapp.com/bookings/${id}`;
         fetch(url,{
             method:'DELETE'
         })
         .then(res=>res.json())
         .then(data=>{
             toast("successfully delete order")
-            window.location.reload()
+           refetch()
         })
       }
   }
@@ -25,7 +25,7 @@ const OrderTable = ({b,refetch}) => {
     }
     if(proceed)
     {
-      fetch(`http://localhost:5000/bookings/order/${_id}`,
+      fetch(`https://morning-fortress-41399.herokuapp.com/bookings/order/${_id}`,
       {
         method:'PUT',
         headers:{
@@ -37,7 +37,7 @@ const OrderTable = ({b,refetch}) => {
       .then(data =>
         {
           console.log(data);
-          window.location.reload()
+          refetch();
         })
        
       }

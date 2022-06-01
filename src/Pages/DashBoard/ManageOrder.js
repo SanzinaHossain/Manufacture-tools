@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading/Loading';
 import OrderTable from './OrderTable';
 
 const ManageOrder = () => {
-  const { data: bookings, isLoading, refetch } = useQuery('bookings', () => fetch('http://localhost:5000/bookings', {
+  const { data: bookings, isLoading, refetch } = useQuery('bookings', () => fetch('https://morning-fortress-41399.herokuapp.com/bookings', {
     method: 'GET',
     headers:{
         authorization: `Bearer ${localStorage.getItem('accessToken')}`
