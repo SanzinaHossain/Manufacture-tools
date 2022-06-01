@@ -111,10 +111,29 @@ const MyReview = () => {
            <span class="label-text text-black">Give Rating</span>
        </label>
        <input 
-           {...register("rating")}     
+           {...register("rating",{
+            required: {
+              value: true,
+              message: 'Rating is required'
+          },
+          min: {
+            value:1,
+            message: `Rating Can't less than 1`
+        },
+          max: {
+            value:5,
+            message:`Rating can't greater than 5`
+        }
+           })}     
             type="text"  
             placeholder="Enter Any Rating" 
             class="text-black input input-bordered w-full max-w-xs border-secondary" />
+         <label className="label">
+          {errors.rating?.type === 'required' && <span className="label-text-alt text-red-500">{errors.rating.message}</span>}
+         {errors.rating?.type === 'min' && <span className="label-text-alt text-red-500">{errors.rating.message}</span>}
+          {errors.rating?.type === 'max' && <span className="label-text-alt text-red-500">{errors.rating.message}</span>}
+
+                                </label>
       </div>
       <div class="form-control w-full max-w-xs">
        <label class="label">
