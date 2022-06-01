@@ -1,5 +1,5 @@
 # C&A Tools-Assignment-12-client
-Live site link:[https://assignment-12-client-6fc90.web.app](https://assignment-12-client-6fc90.web.app)
+Live site link:[https://assignment-12-client-6fc90.web.app](https://assignment-12-client-6fc90.web.app/)
 
 ## Contents of Final Project websites
 - Home : Contains all information about tools Manufacture and items
