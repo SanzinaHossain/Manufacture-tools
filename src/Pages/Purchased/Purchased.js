@@ -49,7 +49,7 @@ const Purchased = () => {
       
       let s=parseInt(stock)-parseInt(data.quantity)
       
-      fetch(`http://localhost:5000/tools/${_id}`,{
+      fetch(`https://morning-fortress-41399.herokuapp.com/tools/${_id}`,{
       method:'PUT',
       headers:{
         'content-type':'application/json'

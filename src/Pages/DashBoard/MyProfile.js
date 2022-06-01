@@ -12,7 +12,8 @@ const MyProfile = () => {
     const profile={
       name:data.name,
       phone:data.phone,
-      address:data.address   
+      address:data.address,
+      education:data.education  
     }
     fetch(`https://morning-fortress-41399.herokuapp.com/user/profile/${email}`,{
       method:'PUT',
@@ -25,6 +26,7 @@ const MyProfile = () => {
     .then(res=>res.json())
     .then(r=>{
       console.log(r)
+      window.location.reload()
       if(r.success)
       {
         toast("Profile Update successfully");
@@ -42,15 +44,15 @@ const MyProfile = () => {
         setP(remain[0]);
       })
   },[])
-  const {name,address,phone}=p;
-  console.log(name)
+  const {name,address,phone,education}=p;
   return (
     <div className='mt-5'>
     <h1 className='text-center text-3xl text-primary font-bold'>Edit Profile</h1>
     <div class="mt-7">
-  <h1 class="text-center text-2xl text-black">Name: {name}</h1>
-  <h1 class="text-center text-2xl text-black">Address: {address}</h1>
-  <h1 class="text-center text-2xl text-black">Phone : {phone}</h1>
+  <h1 class="text-center text-2xl text-black">Name: {name?name:"Not Update yet"}</h1>
+  <h1 class="text-center text-2xl text-black">Address: {address?address:"Not Update Yet"}</h1>
+  <h1 class="text-center text-2xl text-black">Phone : {phone?phone:"Not Update Yet"}</h1>
+  <h1 class="text-center text-2xl text-black">Education : {education?education:"Not Update Yet"}</h1>
     </div>
    <div class="flex justify-center items-center mt-7">
    <div class="card w-96 bg-base-100 shadow-2xl">
@@ -80,22 +82,55 @@ const MyProfile = () => {
            <span class="label-text text-black">Your Phone Number</span>
        </label>
        <input 
-           {...register("phone")}     
+           {...register("phone",{
+              required: {
+                   value: true,
+                   message: 'Phone is required'
+              }
+           })}     
             type="text" 
             placeholder="Enter Phone Number" 
             class="text-black input input-bordered w-full max-w-xs border-secondary" />
+            <label className="label">
+                {errors.phone?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phone.message}</span>}
+            </label>
       </div>
       <div class="form-control w-full max-w-xs">
        <label class="label">
            <span class="label-text text-black">Your Address</span>
        </label>
        <input 
-           {...register("address")}     
+           {...register("address",{
+            required: {
+                 value: true,
+                 message: 'Address is required'
+            }
+         })}     
             type="text" 
             placeholder="Enter Your Address" 
             class="text-black input input-bordered w-full max-w-xs border-secondary" />
+            <label class="label">
+          {errors.address?.type === 'required' && <span className="label-text-alt text-red-700">{errors.address.message}</span>}
+          </label>
       </div>
-     
+      <div class="form-control w-full max-w-xs">
+       <label class="label">
+           <span class="label-text text-black">Your Education</span>
+       </label>
+       <input 
+           {...register("education",{
+            required: {
+                 value: true,
+                 message: 'Education is required'
+            }
+         })}     
+            type="text" 
+            placeholder="Enter Your Education" 
+            class="text-black input input-bordered w-full max-w-xs border-secondary" />
+            <label class="label">
+          {errors.education?.type === 'required' && <span className="label-text-alt text-red-700">{errors.education.message}</span>}
+          </label>
+      </div>
       <input 
       value="Edit Profile"
       class="btn btn-primary w-full max-w-xs text-white mt-2" 
