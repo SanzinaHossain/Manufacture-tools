@@ -9,24 +9,22 @@ import Footer from '../Shared/Footer/Footer';
 const Purchased = () => {
     const [user]=useAuthState(auth)
     const {id}=useParams();
-    console.log(id)
-    const [getitem,setGetitem]=useState([]);
+    const [getitem,setGetitem]=useState({});
     useEffect(()=>{
       fetch(`https://morning-fortress-41399.herokuapp.com/tools/${id}`)
       .then(res=>res.json())
       .then(data=>{
-        console.log(data)
          setGetitem(data)
       })
     },[])
-    const {minimum,stock,name,price}=getitem;
+    const {_id,minimum,stock,name,price}=getitem;
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = data =>{ 
-      let p=parseInt(data.mquantity)*price;
+      let p=parseInt(data.quantity)*price;
       const mybooking={
         email:data.email,
         Pname:name,
-        order:data.mquantity,
+        order:data.quantity,
         phone:data.phone,
         price:p
 
@@ -47,6 +45,22 @@ const Purchased = () => {
           toast("Booking successfully");
         }
       })
+      //update tools details
+      
+      let s=parseInt(stock)-parseInt(data.quantity)
+      
+      fetch(`http://localhost:5000/tools/${_id}`,{
+      method:'PUT',
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify({stock:s})
+    })
+    .then(res=>res.json())
+    .then(data => {
+      window.location.reload()
+      console.log(data)
+  });
     }
   return (
     <div>
@@ -75,44 +89,60 @@ const Purchased = () => {
               value={name}
               class="input input-bordered w-full max-w-xs border-secondary" />
         </div>
-        <div class="form-control w-full max-w-xs">
+        
+        <div className="form-control w-full">
+        <label className="label">
+          <span className="label-text text-black">Order Quantity</span>
+        </label>
+        <div class="text-center">
+         <h5>Available quantity: {stock}</h5>
+        <h5 className='my-2'>Minimum order quantity: {minimum}</h5>
+      <h5 className='mb-2'>per unit price: {price}</h5>
+                            </div>
+       <input type="number"
+           {...register("quantity", {
+                required: {
+                                            value: true,
+                                            message: 'Quantity is required'
+                                        },
+                                        min: {
+                                          value: `${parseInt(minimum)}`,
+                                          message: `Quantity can not be less than ${minimum} PC`
+                                      },
+                                        max: {
+                                          value: `${parseInt(stock)}`,
+                                          message: `Quantity can not be getter than ${stock} PC`
+                                      }
+                                    })}
+                                    placeholder={minimum}
+                                    className="text-black input input-bordered w-full border-secondary "
+                                />
+                                <label className="label">
+                                    {errors.quantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
+                                    {errors.quantity?.type === 'min' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
+                                    {errors.quantity?.type === 'max' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
+
+                                </label>
+                            </div>
+                            <div class="form-control w-full max-w-xs">
          <label class="label">
              <span class="label-text text-black">Phone Number</span>
          </label>
          <input 
-             {...register("phone")}     
+             {...register("phone",{
+              required: {
+                    value: true,
+                     message: 'Phone Number is required'
+                    }})}   
               type="text" 
               placeholder='Enter Phone Number'
               class="input input-bordered w-full max-w-xs border-secondary" />
+              <label className="label">
+              {errors.phone?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phone.message}</span>}
+             </label>
         </div>
-        <div class="form-control w-full max-w-xs">
-         <label class="label">
-             <span class="label-text text-black">Available Quantity</span>
-         </label>
-         <input 
-             {...register("Aquantity")}     
-              type="text" 
-              value={stock}
-              class="input input-bordered w-full max-w-xs border-secondary" />
-        </div>
-        <div class="form-control w-full max-w-xs">
-         <label class="label">
-             <span class="label-text text-black">Order Quantity</span>
-         </label>
-         <input 
-            {...register("mquantity") }       
-              type="text" 
-              placeholder={minimum}
-              class="input input-bordered w-full max-w-xs border-secondary"
-               />
-                <label className="label">
-                {errors.mquantity && "Last name is required"}
-                 </label>
-        </div>
-    <input 
-    value="Placed Order"
-    class=" mt-5 btn btn-primary w-full max-w-xs text-white"
-     type="submit"/>
+        <input
+        className={`${errors?.quantity ? "btn-disabled" : " "} btn btn-primary text-white mt-4 w-full`} value="Purchase" type="submit" />
   </form>
 </div>
 </div>
