@@ -33,7 +33,7 @@ const DashBoard = () => {
           <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/allUsers">All Users</Link></li>
            <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/addproduct">Add Product</Link></li> 
            <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/manageitems">Manage All Items</Link></li> 
-           <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/manageproduct">Manage Products</Link></li>
+           <li class="hover:bg-teal-200 rounded-lg text-black"><Link to="/dashboard/manageorder">Manage Order</Link></li>
           </>
       } 
     </ul>

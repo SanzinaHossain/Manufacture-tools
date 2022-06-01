@@ -21,11 +21,12 @@ import AllUsers from './Pages/DashBoard/AllUsers';
 import RequireAdmin from "./Hooks/RequireAdmin"
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import AddProduct from "./Pages/DashBoard/AddProduct"
-import ManageProduct from './Pages/DashBoard/ManageProduct';
+import ManageProduct from './Pages/DashBoard/ManageOrder';
 import ManageItems from './Pages/DashBoard/ManageItems';
 import Reviews from './Pages/Reviews/Reviews';
 import AboutMore from './Pages/AboutMore/AboutMore';
 import Payment from './Pages/DashBoard/Payment';
+import ManageOrder from './Pages/DashBoard/ManageOrder';
 function App() {
   return (
     <div>
@@ -64,9 +65,9 @@ function App() {
                <AddProduct></AddProduct>
            </RequireAdmin>}>
            </Route>
-           <Route path="manageproduct" element={
+           <Route path="manageorder" element={
            <RequireAdmin>
-               <ManageProduct></ManageProduct>
+               <ManageOrder></ManageOrder>
            </RequireAdmin>}>
            </Route>
            <Route path="manageitems" element={

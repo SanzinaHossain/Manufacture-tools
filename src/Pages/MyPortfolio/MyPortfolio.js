@@ -13,6 +13,15 @@ const MyPortfolio = () => {
 <p class="pt-3">SSC-2015.From Sharaipara City Corporation school and collage.</p>
 <p class="pt-3">HSC-2017.From Govt. Women Collage</p>
 <p class="pt-3">BSC-2022.From International Islamic University Ctg.</p>
+<ul class="pt-3">
+  <p>My skills About : </p>
+  <li>HTML</li>
+  <li>CSS(tailwind,Bootstrap,Daisy Ui)</li>
+  <li>JavaScript</li>
+  <li>React</li>
+  <li>Nodejs</li>
+  <li>Mongodb</li>
+</ul>
 <h1 class="text-xl font-bold">First Project Link:<a href="https://playful-macaron-a580ac.netlify.app/"> Click Here Project-1</a></h1>
 <h1 class="text-xl font-bold">Second Project Link:<a href="https://glittering-pixie-409d91.netlify.app/"> Click Here Project-2</a></h1>
 <h1 class="text-xl font-bold">Third Project Link:<a href="https://incandescent-fairy-081429.netlify.app/home"> Click Here Project-3</a></h1>
