@@ -58,22 +58,25 @@ const CheckoutForm = ({book}) => {
         else {
             setCardError('');
             setTransactionId(paymentIntent.id);
-            console.log(paymentIntent);
             setSuccess('Congrats! Your payment is completed.')
             const payment = {
                 book: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://morning-fortress-41399.herokuapp.com/bookings/${_id}`, {
-                method: 'PATCH',
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify(payment)
-            }).then(res=>res.json())
-            .then(data => {
-                console.log(data);
+            console.log(payment)
+            fetch(`https://morning-fortress-41399.herokuapp.com/bookings/payment/${_id}`,
+            {
+              method:'PUT',
+              headers:{
+               'content-type':'application/json'
+             },
+             body:JSON.stringify(payment)
             })
+            .then(res=>res.json())
+            .then(data =>
+              {
+                console.log(data);
+              })
 
 
         }
